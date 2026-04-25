@@ -1,10 +1,11 @@
     const {test, expect}= require("@playwright/test");
     const {LoginPage}= require("../../pages/LoginPage");
     const { HomePage } = require("../../pages/HomePage");
+    const userData = require("../../test-data/userData.json")
 
-    const email = "Ashely@mailinator.com"
-    const password = "Admin@123"
-    const userName = "Darrel Malone"
+    const email = userData.validUser1.email;
+    const password = userData.validUser1.password;
+    const userName = userData.validUser1.username;
 
     test('generate storage state for authenticated user', async({page})=>{
 
