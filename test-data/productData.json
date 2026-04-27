@@ -1,0 +1,28 @@
+{
+  "singleProduct": {
+    "name": "Madame Top For Women"
+  },
+
+  "secondProduct": {
+    "name": "Colour Blocked Shirt – Sky Blue"
+  },
+
+  "multipleProducts": [
+    {
+      "name":"Fancy Green Top"
+    },
+    {
+      "name": "Soft Stretch Jeans"
+    },
+    {
+        "name": "Rose Pink Embroidered Maxi Dress"
+    },
+    {
+        "name": "Lace Top For Women"
+    }
+  ],
+
+  "invalidProduct": {
+    "name": "Non Existing Product"
+  }
+}

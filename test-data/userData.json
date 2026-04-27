@@ -1,0 +1,17 @@
+{
+    "validUser1": {
+        "username": "Darrel Malone",
+        "email": "Ashely@mailinator.com",
+        "password": "Admin@123"
+    },
+    "validUser2": {
+        "username": "Alexa",
+        "email": "alexa@yopmail.com",
+        "password": "Alexa@123"
+    },
+    "invalidUser": {
+        "username": "David Mall",
+        "email": "David@gmail.co",
+        "password": "Admin"
+    }
+}

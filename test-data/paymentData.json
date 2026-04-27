@@ -1,0 +1,23 @@
+{
+    "validVisaCard": {
+        "cardHolderName": "John Doe",
+        "cardNumber": "4111 1111 1111 1111",
+        "month": "08",
+        "year": "2030",
+        "cvv": "456"
+    },
+    "validMasterCard": {
+        "cardHolderName": "Alexa Doe",
+        "cardNumber": "4242 4242 4242 4242",
+        "month": "07",
+        "year": "2035",
+        "cvv": "789"
+    },
+    "expiredCard": {
+        "cardHolderName": "Test User",
+        "cardNumber": "1234 5678 9012 3456",
+        "month": "01",
+        "year": "2024",
+        "cvv": "744"
+    }
+}
