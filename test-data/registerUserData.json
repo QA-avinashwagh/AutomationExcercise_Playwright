@@ -1,0 +1,47 @@
+{
+    
+  "validUser1": {
+    "firstName": "John",
+    "lastName": "Mathew",
+    "emailPrefix": "john",
+    "password": "Admin@123",
+    "DOB":{
+        "Date" : "17",
+        "Month" : "August",
+        "Year" : "2003"
+    },
+    "addressInfo": {
+      "company": "Smith and co",
+      "address1": "Lane 32", 
+      "address2":"High street",
+      "country": "United States",
+      "state": "Texas",
+      "city": "Gainesville",
+      "zipcode": "325412",
+      "mobile": "9898858501"
+    } 
+  },
+
+  
+  "validUser2": {
+    "firstName": "Alexa",
+    "lastName": "Watson",
+    "emailPrefix": "david",
+    "password": "Admin@123",
+    "DOB":{
+        "Date" : "19",
+        "Month" : "August",
+        "Year" : "2003"
+    },
+    "addressInfo": {
+      "company": "Alexa and co",
+      "address1" : "House 6", 
+      "address2":"High lane street",
+      "country": "India",
+      "state": "Gujarat",
+      "city": "Surat",
+      "zipcode": "394210",
+      "mobile": "9898858502"
+    }
+  }
+}

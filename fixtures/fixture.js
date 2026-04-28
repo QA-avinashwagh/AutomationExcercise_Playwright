@@ -17,7 +17,7 @@ exports.test = base.extend({
         await use(new HomePage(page));
     }, 
 
-    registerpage : async({page},use)=>{
+    registerPage : async({page},use)=>{
         await use(new RegisterPage(page));
     },
 
