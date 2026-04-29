@@ -2,7 +2,7 @@ const { test, expect } = require("../../fixtures/fixture");
 const userData = require("../../test-data/userData.json")
 
 
-test("@Smoke should login successfully with valid credentials", async ({ loginPage, homePage }) => {
+test("@Smoke should login successfully with valid credentials", async ({loginPage, homePage}) => {
 
     await loginPage.navigate();
     await loginPage.login(userData.validUser1.email, userData.validUser1.password);

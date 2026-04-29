@@ -40,9 +40,11 @@ class CartPage {
     }
 
     async getProductQuantity(productName) {
-        return await this.getCartItem(productName)
+        const qunt =  await this.getCartItem(productName)
             .locator('.cart_quantity button')
             .textContent();
+
+        return Number(qunt.trim());
     }
 
     async getProductPrice(productName) {
