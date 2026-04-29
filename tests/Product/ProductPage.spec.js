@@ -1,6 +1,6 @@
-const { test, expect } = require("../fixtures/fixture");
-const { ProductPage } = require("../pages/ProductPage");
-const productData = require("../test-data/productData.json")
+const { test, expect } = require("../../fixtures/fixture");
+const { ProductPage } = require("../../pages/ProductPage");
+const products = require("../../test-data/productData.json")
 
 
 test('@Regression @Product should display product list',
@@ -62,7 +62,7 @@ test('@Regression @Product Add directly from product listing', async ({ navigate
 
     await cartPage.clickOnViewCart();
 
-    await expect(await cartPage.getCartItem(productData.singleProduct.name)).toBeVisible;
+    await expect(await cartPage.getCartItem(productData.singleProduct.name)).toBeVisible();
 
 })
 

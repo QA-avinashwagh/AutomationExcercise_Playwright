@@ -9,6 +9,8 @@ class CartPage {
         this.viewCartLink = this.cartModal.getByRole("link", { name: 'View Cart' })
         this.continueShoppingBtn = this.cartModal.getByRole("button", { name: 'Continue Shopping' });
 
+        this.emptyCartMsg = page.locator('#empty_cart');
+
         this.proccedToCheckoutBtn = page.getByText('Proceed To Checkout');
 
         this.allCartProductInfo = page.locator("#cart_info tbody tr");
@@ -24,6 +26,14 @@ class CartPage {
 
     async clickOnContinueShopping() {
         await this.continueShoppingBtn.click();
+    }
+
+    getEmptyCartMsg(){
+        return this.emptyCartMsg;
+    }
+
+    isProductLinkDisplayedOnEmptyCart(){
+        return this.emptyCartMsg.locator("[href*='/products']");
     }
 
     async clickOnCheckOut() {

@@ -1,6 +1,6 @@
-const {test,expect} = require("../fixtures/fixture");
-const paymentData = require("../test-data/paymentData.json");
-const products = require("../test-data/productData.json");
+const {test,expect} = require("../../fixtures/fixture");
+const paymentData = require("../../test-data/paymentData.json");
+const products = require("../../test-data/productData.json");
 
 test("@cart should remove product and update cart correctly", async ({
      navigate, homePage, productPage, cartPage, checkoutPage }) => {
