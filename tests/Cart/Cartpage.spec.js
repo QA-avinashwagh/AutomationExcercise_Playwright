@@ -2,7 +2,7 @@ const { test, expect } = require("../../fixtures/fixture");
 const productData = require("../../test-data/productData.json");
 
 
-test('@Regression @Cart should displayed message when there is no product', async ({ navigate, homePage, productPage, cartPage }) => {
+test('@regression @cart should displayed message when there is no product', async ({ navigate, homePage, productPage, cartPage }) => {
 
     await homePage.goToCartPage();
 
@@ -16,7 +16,7 @@ test('@Regression @Cart should displayed message when there is no product', asyn
 
 })
 
-test('@Regression @Cart Added product to cart should be displayed with correct Quantity', async ({ navigate, homePage, productPage, cartPage }) => {
+test('@regression @cart Added product to cart should be displayed with correct Quantity', async ({ navigate, homePage, productPage, cartPage }) => {
 
     await homePage.goToProducts();
 
@@ -33,7 +33,7 @@ test('@Regression @Cart Added product to cart should be displayed with correct Q
 })
 
 
-test('@Regression @Cart should remove one product when multiple products are in cart', async ({ navigate, homePage, productPage, cartPage }) => {
+test('@regression @cart should remove one product when multiple products are in cart', async ({ navigate, homePage, productPage, cartPage }) => {
 
     await homePage.goToProducts();
 

@@ -1,0 +1,2 @@
+Product price on cart page :  1400
+product price on checkout page: 1400

@@ -4,18 +4,19 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  timeout : 30*1000,
-  expect :{
-    timeout : 5000
+  timeout: 30 * 1000,
+  expect: {
+    timeout: 5000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
   retries: 1,
   workers: process.env.CI ? 2 : undefined,
-    reporter:  [
-    ['html', {open : 'never'}],
+  reporter: [
+    ['html', { open: 'never' }],
     ['list'],
-    [ 'json', { outputFile :'test-results/results.json'}]
+    ['json', { outputFile: 'test-results/results.json' }],
+    ['allure-playwright']
   ],
   use: {
     baseURL: 'https://automationexercise.com/',
@@ -27,30 +28,38 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    
+
     //1. SETUP PROJECT
     {
-      name :'setup',
-      testMatch : /.*login\.setup\.js/,
+      name: 'setup',
+      testMatch: /.*login\.setup\.js/,
     },
 
     //2.Auth test (No storage state)
     {
       name: 'auth test',
-      testMatch : /.*Auth\/.*\.spec\.js/,
+      testMatch: /.*Auth\/.*\.spec\.js/,
       use: { ...devices['Desktop Chrome'] },
     },
-    
-    
+
+
     //3. APP TEST (Use storage state + depends on set up )
     {
       name: 'app',
-      testIgnore : /.*Auth\/.*\.spec\.js/,
-      use: { ...devices['Desktop Chrome'],
-      storageState : 'playwright/.auth/user.json',
+      testIgnore: [/.*Auth\/.*\.spec\.js/, /.*API\/.*\.spec\.js/],
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
       },
-      dependencies : ['setup'],
+      dependencies: ['setup'],
     },
+    // 4. API tests (standalone)
+    {
+      name: 'api',
+      testMatch: /.*API\/.*\.spec\.js/,
+    }
+
+
 
     // {
     //   name: 'firefox',

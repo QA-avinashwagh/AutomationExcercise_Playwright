@@ -2,7 +2,7 @@ const {test,expect} = require("../../fixtures/fixture");
 const paymentData = require("../../test-data/paymentData.json");
 const products = require("../../test-data/productData.json");
 
-test('@Regression @Checkout should complete checkout for single product', async({navigate, homePage, productPage, cartPage, checkoutPage})=>{
+test('@regression @checkout should complete checkout for single product', async({navigate, homePage, productPage, cartPage, checkoutPage})=>{
 
     await homePage.goToProducts();
 
@@ -38,7 +38,7 @@ test('@Regression @Checkout should complete checkout for single product', async(
 })
 
 
-test("@Checkout @Regression should able to checkout multiple products correctly", async ({navigate, homePage, productPage, cartPage, checkoutPage }) => {
+test("@checkout @regression should able to checkout multiple products correctly", async ({navigate, homePage, productPage, cartPage, checkoutPage }) => {
 
     //productPage
     const productData = [];
@@ -94,7 +94,7 @@ test("@Checkout @Regression should able to checkout multiple products correctly"
     await expect(checkoutPage.getOrderPlacedMsg()).toBeVisible();
 })
 
-test('@Regression @Checkout checkout displayed product price as per quantity wise', async({navigate,homePage, productPage, checkoutPage, cartPage})=>{
+test('@regression @checkout checkout displayed product price as per quantity wise', async({navigate,homePage, productPage, checkoutPage, cartPage})=>{
 
     await homePage.goToProducts();
 

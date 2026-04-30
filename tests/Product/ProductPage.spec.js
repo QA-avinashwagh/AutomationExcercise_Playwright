@@ -1,10 +1,9 @@
 const { test, expect } = require("../../fixtures/fixture");
 const { ProductPage } = require("../../pages/ProductPage");
-const products = require("../../test-data/productData.json")
+const productData = require("../../test-data/productData.json")
 
 
-test('@Regression @Product should display product list',
-    async ({ navigate, homePage, productPage }) => {
+test('@regression @product should display product list', async ({ navigate, homePage, productPage }) => {
 
         await homePage.goToProducts();
 
@@ -17,7 +16,7 @@ test('@Regression @Product should display product list',
 
     });
 
-test('@Smoke @Product Verify valid product search displays correct result'
+test('@smoke @product Verify valid product search displays correct result'
     , async ({ navigate, homePage, productPage }) => {
 
         await homePage.goToProducts();
@@ -33,7 +32,7 @@ test('@Smoke @Product Verify valid product search displays correct result'
 
     })
 
-test('@Regression @Product Verify invalid product name does not display any products',
+test('@regression @product Verify invalid product name does not display any products',
     async ({ navigate, homePage, productPage }) => {
 
         await homePage.goToProducts();
@@ -50,7 +49,7 @@ test('@Regression @Product Verify invalid product name does not display any prod
     })
 
 
-test('@Regression @Product Add directly from product listing', async ({ navigate, homePage, productPage, cartPage }) => {
+test('@regression @product Add directly from product listing', async ({ navigate, homePage, productPage, cartPage }) => {
 
     await homePage.goToProducts();
 
@@ -67,7 +66,7 @@ test('@Regression @Product Add directly from product listing', async ({ navigate
 })
 
 
-test('@Regression should open product details page', async ({ navigate, homePage, productPage }) => {
+test('@regression @product should open product details page', async ({ navigate, homePage, productPage }) => {
 
     await homePage.goToProducts();
 
@@ -86,7 +85,7 @@ test('@Regression should open product details page', async ({ navigate, homePage
 
 })
 
-test('@product should allow setting quantity before adding to cart', async ({ navigate, homePage, productPage, cartPage }) => {
+test('@product @regression should allow setting quantity before adding to cart', async ({ navigate, homePage, productPage, cartPage }) => {
 
     await homePage.goToProducts();
 
@@ -110,7 +109,7 @@ test('@product should allow setting quantity before adding to cart', async ({ na
 })
 
 
-test("@Regression should able to add product to cart", async ({ navigate, homePage, productPage, cartPage }) => {
+test("@regression @product should able to add product to cart", async ({ navigate, homePage, productPage, cartPage }) => {
 
     await homePage.goToProducts();
 

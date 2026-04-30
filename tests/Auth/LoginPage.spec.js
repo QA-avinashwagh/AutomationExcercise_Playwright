@@ -2,7 +2,7 @@ const { test, expect } = require("../../fixtures/fixture");
 const userData = require("../../test-data/userData.json")
 
 
-test("@Smoke should login successfully with valid credentials", async ({loginPage, homePage}) => {
+test("@smoke @login should login successfully with valid credentials", async ({loginPage, homePage}) => {
 
     await loginPage.navigate();
     await loginPage.login(userData.validUser1.email, userData.validUser1.password);
@@ -10,7 +10,7 @@ test("@Smoke should login successfully with valid credentials", async ({loginPag
     await expect(homePage.getUserName()).toHaveText(userData.validUser1.username);
 })
 
-test("@Regression should show error for invalid login", async ({ loginPage }) => {
+test("@regression @login should show error for invalid login", async ({ loginPage }) => {
 
     await loginPage.navigate()
     await loginPage.login(userData.invalidUser.email, userData.invalidUser.password);
@@ -19,7 +19,7 @@ test("@Regression should show error for invalid login", async ({ loginPage }) =>
     await expect(loginPage.page).toHaveURL(/login/);
 })
 
-test('@Smoke should logout successfully', async ({ loginPage, homePage }) => {
+test('@smoke @login should logout successfully', async ({ loginPage, homePage }) => {
 
     await loginPage.navigate();
     await loginPage.login(userData.validUser2.email, userData.validUser2.password);
