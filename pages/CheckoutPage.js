@@ -31,7 +31,7 @@ class CheckoutPage {
     // get product detauils from checkout :
     getCheckoutItem(productName){
         return this.allCheckoutProducts.filter({
-                    has: this.page.locator('td', { hasText: productName })});
+                    has: this.page.locator('.cart_description a', { hasText: productName })});
     }
 
     async getProductPrice(productName){
@@ -41,23 +41,25 @@ class CheckoutPage {
     }
     
     async getProductQuantity(productName){
-      return  await this.getCheckoutItem(productName)
-            .filter('.cart_quantity button')
+      const qunt = await this.getCheckoutItem(productName)
+            .locator('.cart_quantity button')
             .textContent();
+
+         return Number(qunt.trim());
+
     }
 
     // This method will return total price for the product if there are 4 qt of Rs 100 then it will return 400
     async getProductTotalPrice(productName){
         const price =  await this.getCheckoutItem(productName)
-                    .locator(".cart_total_price p")
+                    .locator(".cart_total_price")
                     .textContent();
         return Number(price.replace(/[^\d]/g, ''));
     }
 
-
-    async getProductsTotalAmount(productName) {
-        const price =  await this.getCheckoutItem(productName)
-                    .locator(".cart_total_price p")
+    async getProductsTotalAmount() {
+        const price =  await this.allCheckoutProducts
+                    .locator(".cart_total_price")
                     .last()
                     .textContent();
         return Number(price.replace(/[^\d]/g, ''));
