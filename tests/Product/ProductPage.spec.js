@@ -2,7 +2,6 @@ const { test, expect } = require("../../fixtures/fixture");
 const { ProductPage } = require("../../pages/ProductPage");
 const productData = require("../../test-data/productData.json")
 
-
 test('@regression @product should display product list', async ({ navigate, homePage, productPage }) => {
 
         await homePage.goToProducts();
@@ -84,30 +83,6 @@ test('@regression @product should open product details page', async ({ navigate,
     await expect(productPage.getProductPriceFromDetailPage()).toEqual(productPagePrice);
 
 })
-
-test('@product @regression should allow setting quantity before adding to cart', async ({ navigate, homePage, productPage, cartPage }) => {
-
-    await homePage.goToProducts();
-
-    //checking one product is visible atleast 
-    await expect(productPage.getProductCard(productData.singleProduct.name)).toBeVisible();
-
-    await productPage.clickOnProductDetails(productData.singleProduct.name);
-
-    await expect(productPage.getProductName()).toBeVisible();
-    await expect(await productPage.getProductName()).toHaveText(productData.singleProduct.name);
-
-    await productPage.updateProductQuantity("4");
-    await productPage.clickOnAddToCartFromDetailPage();
-
-    await expect(cartPage.getProductAddedToCartMsg()).toContainText("Your product has been added to cart.");
-
-    await cartPage.clickOnViewCart();
-
-    await cartPage.getCartItem(productData.singleProduct.name);
-    await expect(await cartPage.getProductQuantity(productData.singleProduct.name)).toEqual(4);
-})
-
 
 test("@regression @product should able to add product to cart", async ({ navigate, homePage, productPage, cartPage }) => {
 

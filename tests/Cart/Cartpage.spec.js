@@ -22,6 +22,7 @@ test('@regression @cart should displayed message when there is no product', asyn
 
 })
 
+
 test('@regression @cart Added product to cart should be displayed with correct Quantity', async ({ navigate, homePage, productPage, cartPage }) => {
 
     await homePage.goToProducts();
@@ -36,6 +37,29 @@ test('@regression @cart Added product to cart should be displayed with correct Q
     const quantity = await cartPage.getProductQuantity(productData.singleProduct.name);
     await expect(quantity).toBe(1);
 
+})
+
+test('@cart @regression should allow setting quantity before adding to cart', async ({ navigate, homePage, productPage, cartPage }) => {
+
+    await homePage.goToProducts();
+
+    //checking one product is visible atleast 
+    await expect(productPage.getProductCard(productData.singleProduct.name)).toBeVisible();
+
+    await productPage.clickOnProductDetails(productData.singleProduct.name);
+
+    await expect(productPage.getProductName()).toBeVisible();
+    await expect(await productPage.getProductName()).toHaveText(productData.singleProduct.name);
+
+    await productPage.updateProductQuantity("4");
+    await productPage.clickOnAddToCartFromDetailPage();
+
+    await expect(cartPage.getProductAddedToCartMsg()).toContainText("Your product has been added to cart.");
+
+    await cartPage.clickOnViewCart();
+
+    await cartPage.getCartItem(productData.singleProduct.name);
+    await expect(await cartPage.getProductQuantity(productData.singleProduct.name)).toEqual(4);
 })
 
 
