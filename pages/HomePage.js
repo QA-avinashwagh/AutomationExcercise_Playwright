@@ -6,7 +6,7 @@
             this.userNameOnNavBar = page.locator(".navbar-nav b");
             this.productLink = page.locator(".navbar-nav  [href*='products']");
             this.logOutLink = page.locator("[href*='logout']");
-            this.cartLink = page.getByRole('link', {name:'cart'});
+            this.cartLink = page.locator("a[href*='view_cart']").first();
         }
 
         async goToHomePage(){
@@ -26,7 +26,7 @@
 
         async goToCartPage(){
             await Promise.all([
-                this.page.waitForLoadState("networkidle"),
+                this.page.waitForURL('**/view_cart'),
                 this.cartLink.click()
             ]);
         }

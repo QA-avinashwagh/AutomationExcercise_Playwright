@@ -2,6 +2,13 @@ const {test,expect} = require("../../fixtures/fixture");
 const paymentData = require("../../test-data/paymentData.json");
 const products = require("../../test-data/productData.json");
 
+test.beforeEach(async({navigate, homePage, cartPage})=>{
+
+    await homePage.goToCartPage();
+    await cartPage.ensureCartIsEmpty();
+})
+
+
 test('@regression @checkout should complete checkout for single product', async({navigate, homePage, productPage, cartPage, checkoutPage})=>{
 
     await homePage.goToProducts();

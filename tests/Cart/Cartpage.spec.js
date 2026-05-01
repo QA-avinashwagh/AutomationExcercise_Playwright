@@ -1,6 +1,12 @@
 const { test, expect } = require("../../fixtures/fixture");
 const productData = require("../../test-data/productData.json");
 
+test.beforeEach(async({navigate, homePage, cartPage})=>{
+
+    await homePage.goToCartPage();
+    await cartPage.ensureCartIsEmpty();
+})
+
 
 test('@regression @cart should displayed message when there is no product', async ({ navigate, homePage, productPage, cartPage }) => {
 

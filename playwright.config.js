@@ -11,7 +11,7 @@ export default defineConfig({
   /* Run tests in files in parallel */
   fullyParallel: true,
   retries: 1,
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 3 : undefined,
   reporter: [
     ['html', { open: 'never' }],
     ['list'],

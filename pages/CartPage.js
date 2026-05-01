@@ -11,7 +11,7 @@ class CartPage {
 
         this.emptyCartMsg = page.locator('#empty_cart');
 
-        this.proccedToCheckoutBtn = page.getByText('Proceed To Checkout');
+        this.proccedToCheckoutBtn = page.getByText('Proceed To Checkout')   ;
 
         this.allCartProductInfo = page.locator("#cart_info tbody tr");
     }
@@ -74,6 +74,27 @@ class CartPage {
     async removeProductFromCart(productName) {
         await this.getCartItem(productName).locator('.cart_quantity_delete').click();
     }
+
+    //this will remove first item of cart to be removed
+    async removeFirstCartItem(){
+        const firstRow = this.allCartProductInfo.first();
+
+        await firstRow.locator('.cart_quantity_delete').click();
+
+        await firstRow.waitFor({state:'detached'});
+        
+    }
+
+    //this will ensure cart is empty used for test to be clean 
+    async ensureCartIsEmpty(){
+
+        while(await this.allCartProductInfo.count() > 0){
+            await this.removeFirstCartItem();
+        }
+
+    }
+
+
 
 }
 module.exports={CartPage};
